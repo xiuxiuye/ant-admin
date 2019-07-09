@@ -1,0 +1,10 @@
+<div class="wrapper login">
+  <nz-card class="login-box" style="width:300px;" [nzTitle]="title" nzHoverable>
+    <input nz-input placeholder="Basic usage" [(ngModel)]="value" />
+    {{value}}
+  </nz-card>
+  <ng-template #title>
+    <i nz-icon nzType="login" nzTheme="outline"></i>
+    <span class="login-box-title">欢迎登录</span>
+  </ng-template>
+</div>

@@ -1,0 +1,16 @@
+.login {
+  background-image: url("../../../../assets/login-bg.jpg");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 8% auto 8%;
+  grid-template-rows: 0.8fr 1fr 1fr;
+  grid-template-areas: ". . ." ". content ." ". . .";
+  justify-items: end;
+  align-items: start;
+  &-box {
+    grid-area: content;
+    &-title {
+        margin-left: 6px;
+    }
+  }
+}
