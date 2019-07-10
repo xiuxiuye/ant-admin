@@ -2,12 +2,19 @@
   background-image: url("../../../../assets/login-bg.jpg");
   background-size: cover;
   display: grid;
-  grid-template-columns: 8% auto 8%;
-  grid-template-rows: 0.8fr 1fr 1fr;
-  grid-template-areas: ". . ." ". content ." ". . .";
+  grid-template-columns: 12% auto 12%;
+  grid-template-rows: 0.8fr 380px 1fr;
+  grid-template-areas: ". . lang" ". content ." ". . .";
   justify-items: end;
   align-items: start;
+  .switch-language {
+    width: 96px;
+    margin-top: 8px;
+    margin-right: 16px;
+    grid-area: lang;
+  }
   &-box {
+    width: 320px;
     grid-area: content;
     &-title {
         margin-left: 6px;
