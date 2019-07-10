@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-
-import { en_US, NzI18nService } from 'ng-zorro-antd';
+import { I18nService } from '../../../root-services/i18n.service';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +8,14 @@ import { en_US, NzI18nService } from 'ng-zorro-antd';
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
-  selectedLang = new FormControl('zh_CN');
+  selectedLang: FormControl;
   selected() {
-    this.i18n.setLocale(en_US);
+    this.i18n.setLang(this.selectedLang.value);
   }
-  constructor(private i18n: NzI18nService) {}
+  constructor(private i18n: I18nService) {}
 
   ngOnInit() {
-    console.log(en_US);
+    this.selectedLang = new FormControl('zh_CN');
   }
 
 }
