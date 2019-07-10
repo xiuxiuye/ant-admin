@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NzI18nService } from 'ng-zorro-antd';
-import { en_US, ja_JP, zh_CN, zh_TW } from 'ng-zorro-antd';
+import { NzI18nService, en_US, ja_JP, zh_CN, zh_TW } from 'ng-zorro-antd';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +20,9 @@ export class I18nService {
   }
   public setLang(lang: string): void {
     this.localeLang = lang;
-    this.i18n.setLocale(this.ngZorroLangs[this.localeLang]);
+    this.nzI18n.setLocale(this.ngZorroLangs[this.localeLang]);
   }
-  constructor(private i18n: NzI18nService) {
+  constructor(private nzI18n: NzI18nService) {
     this.initLangs();
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { I18nService } from '../../../root-services/i18n.service';
+import { I18nService } from '../../../services/i18n/i18n.service';
 
 @Component({
   selector: 'app-login',
