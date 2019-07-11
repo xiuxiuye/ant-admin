@@ -2,26 +2,26 @@
   <nz-form-item>
     <nz-form-control nzErrorTip="请输入账号">
       <nz-input-group nzPrefixIcon="user">
-        <input type="text" nz-input formControlName="userName" placeholder="Username" />
+        <input type="text" nz-input formControlName="userName" [placeholder]="'LOGIN.PLACEHOLD_USERNAME' | translate" />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzErrorTip="请输入密码">
       <nz-input-group nzPrefixIcon="lock">
-        <input type="password" nz-input formControlName="password" placeholder="Password" />
+        <input type="password" nz-input formControlName="password" [placeholder]="'LOGIN.PLACEHOLD_PASSWORD' | translate" />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control>
       <label nz-checkbox formControlName="remember">
-        <span>记住我</span>
+        <span>{{'LOGIN.REMEMBER_ME' | translate}}</span>
       </label>
-      <a class="login-form-forgot" class="login-form-forgot">忘记没密码？</a>
-      <button nz-button class="login-form-button" [nzType]="'primary'">登录</button>
-      还没账号？
-      <a>现在立即注册！</a>
+      <a class="login-form-forgot" class="login-form-forgot">{{'LOGIN.FORGET_PASSWORD' | translate}}</a>
+      <button nz-button class="login-form-button" [nzType]="'primary'">{{'LOGIN.SUBMIT' | translate}}</button>
+      {{'LOGIN.REGISTER_1' | translate}}
+      <a>{{'LOGIN.REGISTER_2' | translate}}</a>
     </nz-form-control>
   </nz-form-item>
 </form>

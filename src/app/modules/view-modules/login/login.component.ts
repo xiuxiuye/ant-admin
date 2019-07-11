@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { I18nService } from '../../../services/i18n/i18n.service';
+import { I18nService } from '../../i18n/i18n.service';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +10,12 @@ import { I18nService } from '../../../services/i18n/i18n.service';
 export class LoginComponent implements OnInit {
   selectedLang: FormControl;
   selected() {
-    this.i18n.setLang(this.selectedLang.value);
+    this.i18n.setLocalLang(this.selectedLang.value);
   }
-  constructor(private i18n: I18nService) {}
+  constructor(private i18n: I18nService) { }
 
   ngOnInit() {
-    this.selectedLang = new FormControl('zh_CN');
+    this.selectedLang = new FormControl(this.i18n.getLocalLang());
   }
 
 }

@@ -4,20 +4,23 @@
   display: grid;
   grid-template-columns: 12% auto 12%;
   grid-template-rows: 0.8fr 380px 1fr;
-  grid-template-areas: ". . lang" ". content ." ". . .";
+  grid-template-areas: ". . lang"". content ."". . .";
   justify-items: end;
   align-items: start;
+
   .switch-language {
     width: 96px;
     margin-top: 8px;
     margin-right: 16px;
     grid-area: lang;
   }
+
   &-box {
     width: 320px;
     grid-area: content;
+
     &-title {
-        margin-left: 6px;
+      margin-left: 6px;
     }
   }
 }

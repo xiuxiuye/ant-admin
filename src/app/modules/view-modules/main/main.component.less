@@ -1,0 +1,18 @@
+.main {
+  display: grid;
+  grid-template-columns: 232px auto;
+  grid-template-rows: 100px auto;
+  grid-template-areas: "sider header""sider content";
+
+  &-sider {
+    grid-area: sider;
+  }
+
+  &-header {
+    grid-area: header;
+  }
+
+  &-content {
+    grid-area: content;
+  }
+}

@@ -1,3 +1,18 @@
 {
-  "APP_TITLE": "Welcome to use Angular"
+  "LANG": {
+    "CHINESE": "Chinese",
+    "ENGLISH": "English",
+    "JAPANESE": "Japanese",
+    "CHINESE-TW": "Chinese-TW"
+  },
+  "LOGIN": {
+    "TITLE": "Welcome to Login",
+    "PLACEHOLD_USERNAME": "Username",
+    "PLACEHOLD_PASSWORD": "Password",
+    "REMEMBER_ME": "Remember me",
+    "FORGET_PASSWORD": "Forget the password?",
+    "SUBMIT": "Login",
+    "REGISTER_1": "No account yet?",
+    "REGISTER_2": "Register now!"
+  }
 }

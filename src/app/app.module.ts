@@ -13,10 +13,10 @@ import { I18nModule } from './modules/i18n/i18n.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     SharedModule,
     ViewModule,
-    I18nModule
+    I18nModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+{
+  "LANG": {
+    "CHINESE": "簡体字中国語",
+    "ENGLISH": "英語",
+    "JAPANESE": "日本語",
+    "CHINESE-TW": "繁体中国語"
+  },
+  "LOGIN": {
+    "TITLE": "ログインを歓迎します",
+    "PLACEHOLD_USERNAME": "ユーザ名",
+    "PLACEHOLD_PASSWORD": "パスワード",
+    "REMEMBER_ME": "自動ログイン",
+    "FORGET_PASSWORD": "パスワードを取得？",
+    "SUBMIT": "ログイン",
+    "REGISTER_1": "アカウントなし？",
+    "REGISTER_2": "すぐ登録します！"
+  }
+}

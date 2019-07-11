@@ -1,3 +1,18 @@
 {
-  "APP_TITLE": "歡迎使用Angular"
+  "LANG": {
+    "CHINESE": "簡體中文",
+    "ENGLISH": "英語",
+    "JAPANESE": "日語",
+    "CHINESE-TW": "繁體中文"
+  },
+  "LOGIN": {
+    "TITLE": "歡迎登錄",
+    "PLACEHOLD_USERNAME": "用戶名",
+    "PLACEHOLD_PASSWORD": "密碼",
+    "REMEMBER_ME": "記住我",
+    "FORGET_PASSWORD": "忘記密碼？",
+    "SUBMIT": "登錄",
+    "REGISTER_1": "還沒賬號？",
+    "REGISTER_2": "現在立即註冊！"
+  }
 }

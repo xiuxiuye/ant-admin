@@ -1,17 +1,15 @@
 <div class="wrapper login">
   <nz-select class="switch-language" [formControl]="selectedLang" nzSize="small" (ngModelChange)="selected()">
-    <nz-option nzValue="zh_CN" nzLabel="简体中文"></nz-option>
-    <nz-option nzValue="en_US" nzLabel="英语"></nz-option>
-    <nz-option nzValue="zh_TW" nzLabel="繁体中文"></nz-option>
-    <nz-option nzValue="ja_JP" nzLabel="日语"></nz-option>
+    <nz-option nzValue="zh-CN" [nzLabel]="'LANG.CHINESE' | translate"></nz-option>
+    <nz-option nzValue="en-US" [nzLabel]="'LANG.ENGLISH' | translate"></nz-option>
+    <nz-option nzValue="zh-TW" [nzLabel]="'LANG.CHINESE-TW' | translate"></nz-option>
+    <nz-option nzValue="ja-JP" [nzLabel]="'LANG.JAPANESE' | translate"></nz-option>
   </nz-select>
   <nz-card class="login-box" [nzTitle]="title" nzHoverable>
     <app-login-form></app-login-form>
   </nz-card>
   <ng-template #title>
     <i nz-icon nzType="login" nzTheme="outline"></i>
-    <span class="login-box-title">欢迎登录</span>
+    <span class="login-box-title">{{'LOGIN.TITLE' | translate}}</span>
   </ng-template>
-  <nz-date-picker></nz-date-picker>
-  <h1>{{"APP_TITLE" | translate}}</h1>
 </div>
