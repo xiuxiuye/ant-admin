@@ -2,6 +2,10 @@
 
 一款基于NG-ZORRO组件库开发的后台管理系统
 
+支持i18n国际化配置
+
+所有视图组件以模块区分，并通过懒加载方式进行加载，减少应用初始包的尺寸，从而减少加载时间。
+
 # AntAdmin
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.

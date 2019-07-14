@@ -1,0 +1,36 @@
+@import '../../../../../../styles.less';
+
+.shrink-btn {
+  font-size: 20px;
+}
+
+.bread-crumb {
+  font-size: 16px;
+}
+
+.config-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 40px) auto;
+  justify-items: end;
+  align-items: center;
+
+  a {
+    i {
+      font-size: 20px;
+    }
+
+    nz-avatar {
+      background-color: @theme-color;
+    }
+  }
+}
+
+.shrink-btn,
+.bread-crumb,
+.config-wrapper {
+  color: @theme1-color;
+}
+
+a {
+  color: @theme1-color;
+}

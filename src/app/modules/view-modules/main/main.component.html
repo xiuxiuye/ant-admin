@@ -1,5 +1,17 @@
+<span>{{'LOGIN.TITLE' | translate}}</span>
 <div class="wrapper main">
-  <div class="main-sider">sider</div>
-  <div class="main-header">header</div>
-  <div class="main-content">content</div>
+  <div class="main-sider">
+    <div class="logo">
+      <i nz-icon nzType="fire" nzTheme="twotone" nzTwotoneColor="#2d8cf0"></i>LOGO
+    </div>
+    <!--菜单最多支持三级菜单-->
+    <app-sider-menu [menuList]="menuList"></app-sider-menu>
+  </div>
+  <div class="main-header">
+    <app-header-nav></app-header-nav>
+    <app-tags-nav></app-tags-nav>
+  </div>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

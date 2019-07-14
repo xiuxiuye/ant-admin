@@ -6,6 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable({
   providedIn: I18nModule
 })
+
+// 若在特性模块中使用i18n，主要在特性模块对应的component.ts中依赖注入I18nService
 export class I18nService {
   private ngZorroLangs: object;
   private localLang: string;

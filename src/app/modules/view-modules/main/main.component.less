@@ -1,18 +1,46 @@
+@import '../../../../styles.less';
+@padding: 16px;
 .main {
   display: grid;
-  grid-template-columns: 232px auto;
-  grid-template-rows: 100px auto;
+  grid-template-columns: 240px auto;
+  grid-template-rows: 98px auto;
   grid-template-areas: "sider header""sider content";
 
   &-sider {
     grid-area: sider;
+    background-color: @theme1-color;
+    .logo {
+      height: 64px;
+      font-size: 32px;
+      color: @theme-color;
+      text-align: center;
+      line-height: 64px;
+    }
   }
 
   &-header {
     grid-area: header;
+    display: grid;
+    grid-template-rows: 64px auto;
+    app-header-nav {
+      display: grid;
+      grid-template-columns: 26px auto 192px;
+      column-gap: 24px;
+      align-items: center;
+      padding: 0 @padding;
+    }
+    app-tags-nav {
+      display: grid;
+      grid-template-columns: 16px auto 16px 16px;
+      grid-gap: 2px;
+      align-items: center;
+      background-color: @divider-color;
+    }
   }
 
   &-content {
     grid-area: content;
+    padding: @padding;
+    background-color: @background-color;
   }
 }

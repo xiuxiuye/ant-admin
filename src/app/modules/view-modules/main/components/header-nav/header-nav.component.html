@@ -1,0 +1,36 @@
+<i class="shrink-btn" nz-icon nzType="menu" nzTheme="outline"></i>
+<nz-breadcrumb class="bread-crumb">
+  <nz-breadcrumb-item>
+    <i nz-icon nzType="home"></i>
+    <span>&nbsp;首页</span>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    <a><i nz-icon nzType="user"></i><span>&nbsp;Application List</span></a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    Application
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<div class="config-wrapper">
+  <a href="javascript:void(0)" nz-tooltip nzTitle="全屏" nzPlacement="bottom">
+    <i nz-icon nzType="fullscreen" nzTheme="outline"></i>
+  </a>
+  <a href="javascript:void(0)" nz-tooltip nzTitle="设置" nzPlacement="bottom">
+    <i nz-icon nzType="setting" nzTheme="outline"></i>
+  </a>
+  <a href="javascript:void(0)" nz-tooltip nzTitle="8条未读消息" nzPlacement="bottom">
+    <nz-badge nzDot [nzShowDot]="true">
+      <i nz-icon nzType="mail" nzTheme="outline"></i>
+    </nz-badge>
+  </a>
+  <a nz-dropdown [nzDropdownMenu]="userAvatar" [nzPlacement]="'bottomRight'">
+    <nz-avatar nzIcon="user" [nzSize]="36"></nz-avatar>
+  </a>
+  <nz-dropdown-menu #userAvatar="nzDropdownMenu">
+    <ul nz-menu nzSelectable>
+      <li nz-menu-item [nzDisabled]="true">Admin</li>
+      <li nz-menu-item>个人中心</li>
+      <li nz-menu-item>退出登录</li>
+    </ul>
+  </nz-dropdown-menu>
+</div>

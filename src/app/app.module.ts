@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './modules/shared-module/shared.module';
-import { ViewModule } from './modules/view-modules/view.module';
 import { AppComponent } from './app.component';
 import { I18nModule } from './modules/i18n/i18n.module';
 
@@ -13,8 +12,8 @@ import { I18nModule } from './modules/i18n/i18n.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
-    ViewModule,
     I18nModule,
     AppRoutingModule
   ],
