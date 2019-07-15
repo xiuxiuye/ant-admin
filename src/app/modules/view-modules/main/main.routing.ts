@@ -8,7 +8,7 @@ const MainRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/multilevel-menu/menu2-2/menu3-1',
+        redirectTo: '/home',
         pathMatch: 'full'
       }
     ]
