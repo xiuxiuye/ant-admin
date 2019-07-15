@@ -5,7 +5,7 @@ import { DocumentComponent } from './document.component';
 
 const routes: Routes = [
   {
-    path: 'document',
+    path: '',
     component: DocumentComponent
   }
 ];

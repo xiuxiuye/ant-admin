@@ -12,4 +12,8 @@ import { SharedModule } from 'src/app/modules/shared-module/shared.module';
   ],
   declarations: [HomeComponent]
 })
-export class HomeModule { }
+export class HomeModule {
+  constructor() {
+    console.log('home')
+  }
+}

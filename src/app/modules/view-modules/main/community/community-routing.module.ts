@@ -5,7 +5,7 @@ import { CommunityComponent } from './community.component';
 
 const routes: Routes = [
   {
-    path: 'community',
+    path: '',
     component: CommunityComponent
   }
 ];
