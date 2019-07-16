@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core'
-import { Router } from '@angular/router'
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +7,19 @@ export class AppService {
   private menuList: object[]
   private openedPageTagList: object[]
   private currentOpenedPage: object
+  // 初始化
   initApp() {
     this.menuList = []
     this.openedPageTagList = []
   }
+  // menuList get & set
   getMenuList(): object[] {
     return this.menuList
   }
   setMenuList(menus: object[]): void {
     this.menuList = this.menuList.concat(menus)
   }
+  // openedPageTagList 相关方法
   getOpenedPageTagList(): object[] {
     return this.openedPageTagList
   }
@@ -30,10 +32,12 @@ export class AppService {
   resetOpenedPageTagList(): void {
     this.openedPageTagList = []
   }
-  openPage(page: object): void {
+  // 打开新页面
+  openNewPage(page: object): void {
     this.setCurrentOpenedPage(page)
     this.addOpenedPageTagList(page)
   }
+  // page-tag 相关方法
   closePageTag(index: number): void {
     this.removeOpenedPageTagList(index)
   }
@@ -43,16 +47,15 @@ export class AppService {
   closeAllPageTags(): void {
     this.resetOpenedPageTagList()
   }
+  // currentOpenedPage get & set
   getCurrentOpenedPage(): object {
     return this.currentOpenedPage
   }
   setCurrentOpenedPage(page): void {
     this.currentOpenedPage = page
   }
-  startRouting(commands: any[] = ['/**'], queryParams: object = {}): void {
-    this.router.navigate(commands, queryParams)
-  }
-  constructor(private router: Router) {
+  // 路由导航成功后设置当前的路由页面
+  constructor() {
     this.initApp()
   }
 }

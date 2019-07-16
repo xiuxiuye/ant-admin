@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core'
 import { AppService } from '../../../../../services/app/app.service'
+import { RouterService } from '../../../../../services/router/router.service'
 
 @Component({
   selector: 'app-sider-menu',
@@ -9,9 +10,10 @@ import { AppService } from '../../../../../services/app/app.service'
 export class SiderMenuComponent implements OnInit {
   @Input() menuList: object[]
   handleRouting(commands: any[], queryParams: object): void {
-    this.app.startRouting(commands, queryParams)
+    this.router.navigateRoute(commands, queryParams)
+    console.log(this.router.getRoute())
   }
-  constructor(private app: AppService) { }
+  constructor(private app: AppService, private router: RouterService) { }
 
   ngOnInit() {
   }
