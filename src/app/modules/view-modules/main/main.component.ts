@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../services/user/user.service';
-import { AppService } from '../../../services/app/app.service';
+import { Component, OnInit } from '@angular/core'
+import { UserService } from '../../../services/user/user.service'
+import { AppService } from '../../../services/app/app.service'
 
 @Component({
   selector: 'app-main',
@@ -8,14 +8,13 @@ import { AppService } from '../../../services/app/app.service';
   styleUrls: ['./main.component.less']
 })
 export class MainComponent implements OnInit {
-  menuList: Array<object>;
+  menuList: Array<object>
   initMenus() {
-    this.menuList = this.app.getMenuList();
+    this.menuList = this.app.getMenuList()
   }
   constructor(private user: UserService, private app: AppService) { }
-
   ngOnInit() {
-    this.initMenus();
+    this.initMenus()
   }
 
 }

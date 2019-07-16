@@ -1,6 +1,14 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "semicolon": [
+      false,
+      "always"
+    ],
+    "attr-lowercase": [
+      false,
+      "always"
+    ],
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
@@ -10,13 +18,13 @@
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
     "directive-selector": [
-      false,
+      true,
       "attribute",
       "app",
       "camelCase"
     ],
     "component-selector": [
-      false,
+      true,
       "element",
       "app",
       "kebab-case"
