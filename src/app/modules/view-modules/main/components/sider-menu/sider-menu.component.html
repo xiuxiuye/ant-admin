@@ -37,14 +37,14 @@
             (click)="handleRouting([menu_2?.path])"
           >
             <ng-container *ngFor="let menu_3 of menu_2?.children">
-              <li nz-menu-item [nzSelected]="menu_3?.selected">
+              <li nz-menu-item [nzSelected]="menu_3?.selected" (click)="handleRouting([menu_3?.path])">
                 <i
                   *ngIf="menu_3?.icon"
                   nz-icon
                   [nzType]="menu_3?.icon"
-                  (click)="handleRouting([menu_3?.path])"
+                  
                 ></i>
-                {{ menu_3.title }}
+                {{ menu_3?.title }}
               </li>
             </ng-container>
           </li>
