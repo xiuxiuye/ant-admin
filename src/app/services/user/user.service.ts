@@ -12,7 +12,8 @@ export class UserService {
       age: 23,
       phone: '18810987345',
       email: '1659952775@qq.com',
-      authority: 'SSS'
+      authority: 'SSS',
+      isLogin: false
     };
   }
   getBasicInfo(): object {

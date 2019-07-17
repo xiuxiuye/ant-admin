@@ -11,7 +11,6 @@ export class SiderMenuComponent implements OnInit {
   @Input() menuList: object[]
   handleRouting(commands: any[], queryParams: object): void {
     this.router.navigateRoute(commands, queryParams)
-    console.log(this.router.getRoute())
   }
   constructor(private app: AppService, private router: RouterService) { }
 

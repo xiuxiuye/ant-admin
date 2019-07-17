@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router'
 import { MainComponent } from './main.component'
+import { RouteGuard } from '../../../services/router/route-guard'
 
 const MainRoutes: Routes = [
   {
@@ -16,6 +17,7 @@ const MainRoutes: Routes = [
   {
     path: 'home',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule),
     data: {
       path: '/home',
@@ -27,6 +29,7 @@ const MainRoutes: Routes = [
   {
     path: 'document',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./document/document.module').then(mod => mod.DocumentModule),
     data: {
       path: '/document',
@@ -38,6 +41,7 @@ const MainRoutes: Routes = [
   {
     path: 'community',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./community/community.module').then(mod => mod.CommunityModule),
     data: {
       path: '/community',
@@ -49,6 +53,7 @@ const MainRoutes: Routes = [
   {
     path: 'component-lib',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./component-lib/component-lib.module').then(mod => mod.ComponentLibModule),
     data: {
       title: '组件',
@@ -133,6 +138,7 @@ const MainRoutes: Routes = [
   {
     path: 'upload-data',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./upload-data/upload-data.module').then(mod => mod.UploadDataModule),
     data: {
       title: '上传数据',
@@ -181,6 +187,7 @@ const MainRoutes: Routes = [
   {
     path: 'tool-function',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./tool-function/tool-function.module').then(mod => mod.ToolFunctionModule),
     data: {
       path: '/tool-function',
@@ -192,6 +199,7 @@ const MainRoutes: Routes = [
   {
     path: 'i18n-lang',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./i18n-lang/i18n-lang.module').then(mod => mod.I18nLangModule),
     data: {
       path: '/i18n-lang',
@@ -203,6 +211,7 @@ const MainRoutes: Routes = [
   {
     path: 'error-collection',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./error-collection/error-collection.module').then(mod => mod.ErrorCollectionModule),
     data: {
       path: '/error-collection',
@@ -214,6 +223,7 @@ const MainRoutes: Routes = [
   {
     path: 'instructions',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./instructions/instructions.module').then(mod => mod.InstructionsModule),
     data: {
       path: '/instructions',
@@ -225,6 +235,7 @@ const MainRoutes: Routes = [
   {
     path: 'multilevel-menu',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./multilevel-menu/multilevel-menu.module').then(mod => mod.MultilevelMenuModule),
     data: {
       title: '多级菜单',

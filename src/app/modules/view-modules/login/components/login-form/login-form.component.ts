@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
+import { Observable, Observer } from 'rxjs';
 
 @Component({
   selector: 'app-login-form',
@@ -17,12 +18,33 @@ export class LoginFormComponent implements OnInit {
     }
   }
 
+  // 异步的用户名验证
+  userNameAsyncValidator = (control: FormControl) =>
+    new Observable((observer: Observer<ValidationErrors | null>) => {
+      if (control.value === 'Bob') {
+        // you have to return `{error: true}` to mark it as an error event
+        observer.next({ error: true, duplicated: true });
+      } else {
+        observer.next(null)
+      }
+      observer.complete()
+      // setTimeout(() => {
+      //   if (control.value === 'Bob') {
+      //     // you have to return `{error: true}` to mark it as an error event
+      //     observer.next({ error: true, duplicated: true });
+      //   } else {
+      //     observer.next(null)
+      //   }
+      //   observer.complete()
+      // }, 1000)
+    })
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
+      userName: [null, [Validators.required], [this.userNameAsyncValidator]],
+      password: [null, [Validators.required, Validators.minLength(6)]],
       remember: [true]
     });
   }

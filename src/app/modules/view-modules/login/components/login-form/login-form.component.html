@@ -1,15 +1,25 @@
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
   <nz-form-item>
-    <nz-form-control nzErrorTip="请输入账号">
+    <nz-form-control nzErrorTip="请输入账号" nzHasFeedback nzValidatingTip="正在验证..." [nzErrorTip]="userErrorTpl">
       <nz-input-group nzPrefixIcon="user">
-        <input type="text" nz-input formControlName="userName" [placeholder]="'LOGIN.PLACEHOLD_USERNAME' | translate" />
+        <input type="text" nz-input formControlName="userName" 
+          [placeholder]="'LOGIN.PLACEHOLD_USERNAME' | translate" />
+          <ng-template #userErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                Please input your username!
+              </ng-container>
+              <ng-container *ngIf="control.hasError('duplicated')">
+                Bob已经被占用啦！
+              </ng-container>
+          </ng-template>
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzErrorTip="请输入密码">
       <nz-input-group nzPrefixIcon="lock">
-        <input type="password" nz-input formControlName="password" [placeholder]="'LOGIN.PLACEHOLD_PASSWORD' | translate" />
+        <input type="password" nz-input formControlName="password"
+          [placeholder]="'LOGIN.PLACEHOLD_PASSWORD' | translate" />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
