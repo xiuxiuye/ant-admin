@@ -10,41 +10,42 @@ import { Observable, Observer } from 'rxjs';
 export class LoginFormComponent implements OnInit {
   validateForm: FormGroup;
   submitForm(): void {
+    console.log(this.validateForm)
+    if (!this.validateForm.invalid) {
+      // 通过表单校验, 验证登录
+      
+    }
     for (const i in this.validateForm.controls) {
       if (this.validateForm.controls[i]) {
         this.validateForm.controls[i].markAsDirty();
-        this.validateForm.controls[i].updateValueAndValidity();
+        // this.validateForm.controls[i].updateValueAndValidity();
       }
     }
   }
 
-  // 异步的用户名验证
+  // 自定义异步的用户名验证
   userNameAsyncValidator = (control: FormControl) =>
     new Observable((observer: Observer<ValidationErrors | null>) => {
-      if (control.value === 'Bob') {
-        // you have to return `{error: true}` to mark it as an error event
-        observer.next({ error: true, duplicated: true });
-      } else {
-        observer.next(null)
-      }
-      observer.complete()
-      // setTimeout(() => {
-      //   if (control.value === 'Bob') {
-      //     // you have to return `{error: true}` to mark it as an error event
-      //     observer.next({ error: true, duplicated: true });
-      //   } else {
-      //     observer.next(null)
-      //   }
-      //   observer.complete()
-      // }, 1000)
+      setTimeout(() => {
+        if (control.value === 'Bob') {
+          // you have to return `{error: true}` to mark it as an error event
+          observer.next({ error: true, duplicated: true });
+        } else {
+          observer.next(null)
+        }
+        observer.complete()
+      }, 1000)
     })
-
+  // 自定义同步的密码验证
+  passwordSyncValidator = (control: FormControl) => {
+    return (typeof control.value === 'string') && control.value.length < 6 ? { minLengthError: true } : null
+  }
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required], [this.userNameAsyncValidator]],
-      password: [null, [Validators.required, Validators.minLength(6)]],
+      password: [null, [Validators.required, this.passwordSyncValidator]],
       remember: [true]
     });
   }

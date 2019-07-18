@@ -1,10 +1,10 @@
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
   <nz-form-item>
-    <nz-form-control nzErrorTip="请输入账号" nzHasFeedback nzValidatingTip="正在验证..." [nzErrorTip]="userErrorTpl">
+    <nz-form-control nzHasFeedback nzValidatingTip="正在验证..." [nzErrorTip]="userErrorTip">
       <nz-input-group nzPrefixIcon="user">
         <input type="text" nz-input formControlName="userName" 
           [placeholder]="'LOGIN.PLACEHOLD_USERNAME' | translate" />
-          <ng-template #userErrorTpl let-control>
+          <ng-template #userErrorTip let-control>
               <ng-container *ngIf="control.hasError('required')">
                 Please input your username!
               </ng-container>
@@ -16,11 +16,19 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-control nzErrorTip="请输入密码">
+    <nz-form-control nzHasFeedback [nzErrorTip]="passwordErrorTip">
       <nz-input-group nzPrefixIcon="lock">
         <input type="password" nz-input formControlName="password"
           [placeholder]="'LOGIN.PLACEHOLD_PASSWORD' | translate" />
       </nz-input-group>
+      <ng-template #passwordErrorTip let-control>
+        <ng-container *ngIf="control.hasError('required')">
+          Please input your password!
+        </ng-container>
+        <ng-container *ngIf="control.hasError('minLengthError')">
+          密码长度不得少于6位！
+        </ng-container>
+      </ng-template>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
