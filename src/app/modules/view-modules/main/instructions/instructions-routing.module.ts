@@ -5,7 +5,11 @@ import { InstructionsComponent } from './instructions.component';
 const routes: Routes = [
   {
     path: '',
-    component: InstructionsComponent
+    component: InstructionsComponent,
+    data: {
+      title: '指令',
+      type: 'menu'
+    }
   }
 ];
 

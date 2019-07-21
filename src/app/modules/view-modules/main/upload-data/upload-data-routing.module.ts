@@ -6,11 +6,19 @@ import { PasteTableDataComponent } from './components/paste-table-data/paste-tab
 const routes: Routes = [
   {
     path: 'upload-csv-files',
-    component: UploadCsvFilesComponent
+    component: UploadCsvFilesComponent,
+    data: {
+      title: '上传CSV文件',
+      type: 'menu'
+    }
   },
   {
     path: 'paste-table-data',
-    component: PasteTableDataComponent
+    component: PasteTableDataComponent,
+    data: {
+      title: '粘贴表格数据',
+      type: 'menu'
+    }
   }
 ];
 

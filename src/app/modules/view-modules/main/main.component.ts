@@ -10,12 +10,17 @@ import { RouterService } from '../../../services/router/router.service'
 })
 export class MainComponent implements OnInit {
   menuList: Array<object>
-  initMenus() {
+  pageOpenedList: object[]
+
+  init() {
     this.menuList = this.app.getMenuList()
+    this.pageOpenedList = this.app.getPageOpenedList()
+    console.log(this.menuList)
+    console.log(this.pageOpenedList)
   }
   constructor(private user: UserService, private app: AppService) { }
   ngOnInit() {
-    this.initMenus()
+    this.init()
   }
 
 }

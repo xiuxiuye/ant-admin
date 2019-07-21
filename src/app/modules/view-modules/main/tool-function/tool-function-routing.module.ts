@@ -5,7 +5,11 @@ import { ToolFunctionComponent } from './tool-function.component'
 const routes: Routes = [
   {
     path: '',
-    component: ToolFunctionComponent
+    component: ToolFunctionComponent,
+    data: {
+      title: '工具函数',
+      type: 'menu'
+    }
   }
 ];
 

@@ -6,7 +6,11 @@ import { CommunityComponent } from './community.component';
 const routes: Routes = [
   {
     path: '',
-    component: CommunityComponent
+    component: CommunityComponent,
+    data: {
+      title: '社区',
+      type: 'menu'
+    }
   }
 ];
 

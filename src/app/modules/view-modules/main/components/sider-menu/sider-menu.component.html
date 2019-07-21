@@ -18,6 +18,7 @@
         nz-submenu
         [nzTitle]="menu_1?.title"
         [nzIcon]="menu_1?.icon"
+        [nzOpen]="menu_1?.selected"
       >
         <ng-container *ngFor="let menu_2 of menu_1?.children">
           <li
@@ -34,7 +35,7 @@
             nz-submenu
             [nzTitle]="menu_2?.title"
             [nzIcon]="menu_2?.icon"
-            (click)="handleRouting([menu_2?.path])"
+            [nzOpen]="menu_2?.selected"
           >
             <ng-container *ngFor="let menu_3 of menu_2?.children">
               <li nz-menu-item [nzSelected]="menu_3?.selected" (click)="handleRouting([menu_3?.path])">

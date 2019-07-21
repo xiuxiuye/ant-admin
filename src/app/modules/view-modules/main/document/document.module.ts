@@ -10,4 +10,6 @@ import { DocumentRoutingModule } from './document-routing.module';
   ],
   declarations: [DocumentComponent]
 })
-export class DocumentModule {}
+export class DocumentModule {constructor() {
+  console.log('document')
+}}

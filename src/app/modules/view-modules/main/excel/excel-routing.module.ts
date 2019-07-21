@@ -6,11 +6,19 @@ import { ExportExcelComponent } from './components/export-excel/export-excel.com
 const routes: Routes = [
   {
     path: 'upload-excel',
-    component: UploadExcelComponent
+    component: UploadExcelComponent,
+    data: {
+      title: '上传Excel',
+      type: 'menu'
+    }
   },
   {
     path: 'export-excel',
-    component: ExportExcelComponent
+    component: ExportExcelComponent,
+    data: {
+      title: '导出Excel',
+      type: 'menu'
+    }
   }
 ];
 

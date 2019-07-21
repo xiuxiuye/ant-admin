@@ -28,7 +28,7 @@
   </a>
   <nz-dropdown-menu #userAvatar="nzDropdownMenu">
     <ul nz-menu nzSelectable>
-      <li nz-menu-item [nzDisabled]="true">Admin</li>
+      <li nz-menu-item [nzDisabled]="true">{{userInfo?.name}}</li>
       <li nz-menu-item>个人中心</li>
       <li nz-menu-item (click)="logout()">退出登录</li>
     </ul>

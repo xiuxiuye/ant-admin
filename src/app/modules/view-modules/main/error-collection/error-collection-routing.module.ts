@@ -5,7 +5,11 @@ import { ErrorCollectionComponent } from './error-collection.component';
 const routes: Routes = [
   {
     path: '',
-    component: ErrorCollectionComponent
+    component: ErrorCollectionComponent,
+    data: {
+      title: '错误收集',
+      type: 'menu'
+    }
   }
 ];
 

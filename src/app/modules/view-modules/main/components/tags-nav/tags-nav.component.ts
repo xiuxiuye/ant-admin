@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tags-nav',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tags-nav.component.less']
 })
 export class TagsNavComponent implements OnInit {
+  @Input() pageOpenedList: object[]
+
+  closeTag(event) {
+    console.log(event)
+  }
 
   constructor() { }
 

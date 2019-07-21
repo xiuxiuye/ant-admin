@@ -6,7 +6,11 @@ import { DocumentComponent } from './document.component';
 const routes: Routes = [
   {
     path: '',
-    component: DocumentComponent
+    component: DocumentComponent,
+    data: {
+      title: '文档',
+      type: 'menu'
+    }
   }
 ];
 
@@ -14,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DocumentRoutingModule { }
+export class DocumentRoutingModule {}

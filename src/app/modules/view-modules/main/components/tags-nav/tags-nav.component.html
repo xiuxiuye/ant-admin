@@ -1,17 +1,31 @@
 <a><i nz-icon nzType="left" nzTheme="outline"></i></a>
 <div class="tags-wrapper">
-  <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)">
-    <i nz-icon nzType="environment" nzTheme="outline"></i>
-    首页
-  </nz-tag>
-  <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)">
-    <i nz-icon nzType="environment" nzTheme="outline"></i>
-    文档
-  </nz-tag>
-  <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)" [nzColor]="'#2d8cf0'">
-    <i nz-icon nzType="environment" nzTheme="outline"></i>
-    树状下拉选择器
-  </nz-tag>
+  <div class="tags-wrapper-scroll">
+    <ng-container *ngTemplateOutlet="TgasTemplate; context: { $implicit: pageOpenedList }"></ng-container>
+    <ng-template #TgasTemplate let-pageOpenedList>
+      <ng-container *ngFor="let tag of pageOpenedList">
+        <nz-tag nzMode="closeable" (nzOnClose)="closeTag($event)"
+          [nzChecked]="tag?.selected"
+          [nzColor]="tag?.selected ? '#2d8cf0' : ''">
+          <i nz-icon nzType="environment" nzTheme="outline"></i>
+          {{tag?.title}}
+        </nz-tag>
+      </ng-container>
+    </ng-template>
+
+    <!-- <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)" [nzChecked]="true" nzColor="#2d8cf0">
+      <i nz-icon nzType="environment" nzTheme="outline"></i>
+      首页
+    </nz-tag>
+    <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)" [nzChecked]="true">
+      <i nz-icon nzType="environment" nzTheme="outline"></i>
+      文档
+    </nz-tag>
+    <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)" [nzColor]="'#2d8cf0'">
+      <i nz-icon nzType="environment" nzTheme="outline"></i>
+      树状下拉选择器
+    </nz-tag> -->
+  </div>
 </div>
 <a>
   <i nz-icon nzType="right" nzTheme="outline"></i>

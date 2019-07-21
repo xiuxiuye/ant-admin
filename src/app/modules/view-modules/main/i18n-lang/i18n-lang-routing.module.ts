@@ -5,7 +5,11 @@ import { I18nLangComponent } from './i18n-lang.component';
 const routes: Routes = [
   {
     path: '',
-    component: I18nLangComponent
+    component: I18nLangComponent,
+    data: {
+      title: 'i18n多语言',
+      type: 'menu'
+    }
   }
 ];
 

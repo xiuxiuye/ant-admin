@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../../../services/user/user.service'
+import { AppService } from '../../../../../services/app/app.service'
 
 @Component({
   selector: 'app-header-nav',
@@ -7,13 +8,18 @@ import { UserService } from '../../../../../services/user/user.service'
   styleUrls: ['./header-nav.component.less']
 })
 export class HeaderNavComponent implements OnInit {
+  userInfo: Object
 
-  constructor(private user: UserService) { }
-
-  ngOnInit() {
+  init(): void {
+    this.userInfo = this.user.getBasicInfo()
+  }
+  logout(): void {
+    this.user.logout()
   }
 
-  logout() {
-    this.user.logout()
+  constructor(private user: UserService, private app: AppService) { }
+
+  ngOnInit() {
+    this.init()
   }
 }

@@ -16,51 +16,99 @@ import { CustomIconsComponent } from './components/custom-icons/custom-icons.com
 const routes: Routes = [
   {
     path: 'tree-select',
-    component: TreeSelectComponent
+    component: TreeSelectComponent,
+    data: {
+      title: '树状下拉选择器',
+      type: 'menu'
+    }
   },
   {
     path: 'digital-gradient',
-    component: DigitalGradientComponent
+    component: DigitalGradientComponent,
+    data: {
+      title: '数字渐变',
+      type: 'menu'
+    }
   },
   {
     path: 'draggable-list',
-    component: DraggableListComponent
+    component: DraggableListComponent,
+    data: {
+      title: '拖拽列表',
+      type: 'menu'
+    }
   },
   {
     path: 'draggable-drawer',
-    component: DraggableDrawerComponent
+    component: DraggableDrawerComponent,
+    data: {
+      title: '可拖动抽屉',
+      type: 'menu'
+    }
   },
   {
     path: 'organization-tree',
-    component: OrganizationTreeComponent
+    component: OrganizationTreeComponent,
+    data: {
+      title: '组织结构树',
+      type: 'menu'
+    }
   },
   {
     path: 'tree-table',
-    component: TreeTableComponent
+    component: TreeTableComponent,
+    data: {
+      title: '树状表格',
+      type: 'menu'
+    }
   },
   {
     path: 'image-clipper',
-    component: ImageClipperComponent
+    component: ImageClipperComponent,
+    data: {
+      title: '图片裁剪',
+      type: 'menu'
+    }
   },
   {
     path: 'multi-purpose-table',
-    component: MultiPurposeTableComponent
+    component: MultiPurposeTableComponent,
+    data: {
+      title: '多功能表格',
+      type: 'menu'
+    }
   },
   {
     path: 'split-window',
-    component: SplitWindowComponent
+    component: SplitWindowComponent,
+    data: {
+      title: '分割窗口',
+      type: 'menu'
+    }
   },
   {
     path: 'markdown-editor',
-    component: MarkdownEditorComponent
+    component: MarkdownEditorComponent,
+    data: {
+      title: 'markdown编辑器',
+      type: 'menu'
+    }
   },
   {
     path: 'rich-text-editor',
-    component: RichTextEditorComponent
+    component: RichTextEditorComponent,
+    data: {
+      title: '富文本编辑器',
+      type: 'menu'
+    }
   },
   {
     path: 'custom-icons',
-    component: CustomIconsComponent
+    component: CustomIconsComponent,
+    data: {
+      title: '自定义图标',
+      type: 'menu'
+    }
   }
 ]
 

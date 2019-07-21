@@ -6,8 +6,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 })
 export class RouterService {
   // 路由导航
-  navigateRoute(commands: any[] = ['/**'], queryParams: object = {}): void {
-    this.router.navigate(commands, queryParams)
+  navigateRoute(commands: any[] = ['/**'], params: object = {}): void {
+    this.router.navigate(commands.concat(params))
   }
   // 返回当前路由信息
   getRoute():  ActivatedRoute{

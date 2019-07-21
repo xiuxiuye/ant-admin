@@ -163,6 +163,7 @@ const MainRoutes: Routes = [
   {
     path: 'excel',
     component: MainComponent,
+    canActivate: [RouteGuard],
     loadChildren: () => import('./excel/excel.module').then(mod => mod.ExcelModule),
     data: {
       title: 'Excel',

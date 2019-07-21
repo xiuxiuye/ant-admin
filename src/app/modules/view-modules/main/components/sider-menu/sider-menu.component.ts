@@ -16,5 +16,4 @@ export class SiderMenuComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

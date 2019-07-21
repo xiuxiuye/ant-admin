@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core'
 })
 export class AppService {
   private menuList: object[]
-  private openedPageTagList: object[]
+  private pageOpenedList: object[]
   private currentOpenedPage: object
   // 初始化
   initApp() {
     this.menuList = []
-    this.openedPageTagList = []
+    this.pageOpenedList = [{ title: '首页', type: "menu", path: '/home', selected: true }]
   }
   // menuList get & set
   getMenuList(): object[] {
@@ -20,17 +20,52 @@ export class AppService {
     this.menuList = this.menuList.concat(menus)
   }
   // openedPageTagList 相关方法
-  getOpenedPageTagList(): object[] {
-    return this.openedPageTagList
+  getPageOpenedList(): object[] {
+    return this.pageOpenedList
   }
-  addOpenedPageTagList(page: object): void {
-    this.openedPageTagList.push(page)
+  addPageOpenedList(page: object): void {
+    // 检查page是否已存在pageOpenedList中
+    let isExit = false
+    this.pageOpenedList.forEach(item => {
+      if (item.path === page.path) {
+        item.selected = true
+        isExit = true
+      } else {
+        item.selected = false
+      }
+    })
+    if (!isExit) {
+      this.pageOpenedList.push(page)
+    }
+    if (page.type && page.type === 'menu') {
+      // 检查page是否是菜单项，如果是则更新相应项的selected
+      this.checkPageOpenedType(page, this.menuList)
+    }
   }
-  removeOpenedPageTagList(index: number): void {
-    this.openedPageTagList.splice(index, 1)
+  checkPageOpenedType(page: object, menus: object[], parent=null): boolean {
+    let matchSuccess = false
+    menus.forEach(item => {
+      if (item.children) {
+        matchSuccess = this.checkPageOpenedType(page, item.children, item)
+      } else {
+        if (item.path === page.path) {
+          item.selected = true
+          matchSuccess = true
+        } else {
+          item.selected = false
+        }
+      }
+    })
+    if (parent) {
+      parent.selected = matchSuccess
+    }
+    return matchSuccess
   }
-  resetOpenedPageTagList(): void {
-    this.openedPageTagList = []
+  removePageOpenedList(index: number): void {
+    this.pageOpenedList.splice(index, 1)
+  }
+  resetPageOpenedList(): void {
+    this.pageOpenedList = [{ title: '首页', type: "menu", path: '/home', selected: true }]
   }
   // 打开新页面
   openNewPage(page: object): void {
