@@ -1,26 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
+import { RouterService } from '../router/router.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private basicInfo: object;
-  initUser() {
-    this.basicInfo = {
-      name: 'admin',
-      sex: 'man',
-      age: 23,
-      phone: '18810987345',
-      email: '1659952775@qq.com',
-      authority: 'SSS',
-      isLogin: false
-    };
+  private basicInfo: object
+  setBasicInfo(info: object): void {
+    this.basicInfo = info
   }
   getBasicInfo(): object {
-    return this.basicInfo;
+    return this.basicInfo
   }
-  constructor() {
-    this.initUser();
+  logout() {
+    this.basicInfo = {}
+    localStorage.clear()
+    sessionStorage.clear()
+    this.router.navigateRoute(['/login'])
   }
-
+  constructor(private router: RouterService) { }
 }

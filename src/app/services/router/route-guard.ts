@@ -11,7 +11,7 @@ export class RouteGuard implements CanActivate {
     canActivate(
         next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): boolean {
-        if (sessionStorage.token) {
+        if (localStorage.token || sessionStorage.token) {
             return true
         } else {
             this.router.navigateRoute(['/login'])
