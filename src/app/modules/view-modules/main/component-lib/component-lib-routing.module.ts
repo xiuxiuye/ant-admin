@@ -12,11 +12,13 @@ import { SplitWindowComponent } from './components/split-window/split-window.com
 import { MarkdownEditorComponent } from './components/markdown-editor/markdown-editor.component'
 import { RichTextEditorComponent } from './components/rich-text-editor/rich-text-editor.component'
 import { CustomIconsComponent } from './components/custom-icons/custom-icons.component'
+import { RouteGuard } from 'src/app/services/router/route-guard'
 
 const routes: Routes = [
   {
     path: 'tree-select',
     component: TreeSelectComponent,
+    canActivateChild: [RouteGuard],
     data: {
       title: '树状下拉选择器',
       type: 'menu'

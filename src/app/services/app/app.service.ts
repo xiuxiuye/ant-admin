@@ -70,17 +70,17 @@ export class AppService {
   // 打开新页面
   openNewPage(page: object): void {
     this.setCurrentOpenedPage(page)
-    this.addOpenedPageTagList(page)
+    this.addPageOpenedList(page)
   }
   // page-tag 相关方法
   closePageTag(index: number): void {
-    this.removeOpenedPageTagList(index)
+    this.removePageOpenedList(index)
   }
   closeOtherPageTags(): void {
 
   }
   closeAllPageTags(): void {
-    this.resetOpenedPageTagList()
+    this.resetPageOpenedList()
   }
   // currentOpenedPage get & set
   getCurrentOpenedPage(): object {
