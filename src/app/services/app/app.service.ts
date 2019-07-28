@@ -5,12 +5,19 @@ import { Injectable } from '@angular/core'
 })
 export class AppService {
   private menuList: object[]
-  private pageOpenedList: object[]
+  private pageOpenedList: any[]
   private currentOpenedPage: object
   // 初始化
   initApp() {
     this.menuList = []
-    this.pageOpenedList = [{ title: '首页', type: "menu", path: '/home', selected: true }]
+    if (sessionStorage.pageOpenedList) {
+      this.pageOpenedList = JSON.parse(sessionStorage.pageOpenedList)
+      if (!this.pageOpenedList.length || this.pageOpenedList.length === 0) {
+        this.resetPageOpenedList()
+      }
+    } else {
+      this.resetPageOpenedList()
+    }
   }
   // menuList get & set
   getMenuList(): object[] {
@@ -23,7 +30,7 @@ export class AppService {
   getPageOpenedList(): object[] {
     return this.pageOpenedList
   }
-  addPageOpenedList(page: object): void {
+  addPageOpenedList(page: any): void {
     // 检查page是否已存在pageOpenedList中
     let isExit = false
     this.pageOpenedList.forEach(item => {
@@ -37,12 +44,14 @@ export class AppService {
     if (!isExit) {
       this.pageOpenedList.push(page)
     }
+    // 本地保存打开的页面
+    sessionStorage.pageOpenedList = JSON.stringify(this.pageOpenedList)
     if (page.type && page.type === 'menu') {
       // 检查page是否是菜单项，如果是则更新相应项的selected
       this.checkPageOpenedType(page, this.menuList)
     }
   }
-  checkPageOpenedType(page: object, menus: object[], parent=null): boolean {
+  checkPageOpenedType(page: any, menus: any[], parent=null): boolean {
     let matchSuccess = false
     menus.forEach(item => {
       if (item.children) {
@@ -66,6 +75,8 @@ export class AppService {
   }
   resetPageOpenedList(): void {
     this.pageOpenedList = [{ title: '首页', type: "menu", path: '/home', selected: true }]
+    // 本地保存
+    sessionStorage.pageOpenedList = JSON.stringify(this.pageOpenedList)
   }
   // 打开新页面
   openNewPage(page: object): void {
@@ -74,16 +85,17 @@ export class AppService {
   }
   // page-tag 相关方法
   closePageTag(index: number): void {
-    this.removePageOpenedList(index)
+    console.log(index)
+    // this.removePageOpenedList(index)
   }
-  closeOtherPageTags(): void {
+  closeOtherPageTags(currentRoutePath): void {
 
   }
   closeAllPageTags(): void {
     this.resetPageOpenedList()
   }
   // currentOpenedPage get & set
-  getCurrentOpenedPage(): object {
+  getCurrentOpenedPage(): any {
     return this.currentOpenedPage
   }
   setCurrentOpenedPage(page): void {

@@ -54,7 +54,7 @@ export class LoginFormComponent implements OnInit {
           sessionStorage.token = 'admin'
         }
         this.message.success('登录成功！', { nzDuration: 2000 }).onClose.subscribe(() => {
-          this.router.navigateRoute(['/'])
+          this.router.navigateRoute(['/home'])
         })
       }, 3000)
     }

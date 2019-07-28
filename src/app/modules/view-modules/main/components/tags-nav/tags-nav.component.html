@@ -1,10 +1,13 @@
-<a><i nz-icon nzType="left" nzTheme="outline"></i></a>
+<a href="javascript:void(0)" (click)="handleScroll('left')"><i nz-icon nzType="left" nzTheme="outline"></i></a>
 <div class="tags-wrapper">
-  <div class="tags-wrapper-scroll">
+  <div class="tags-wrapper-scroll" [style.left]="leftOffset + 'px'">
     <ng-container *ngTemplateOutlet="TgasTemplate; context: { $implicit: pageOpenedList }"></ng-container>
     <ng-template #TgasTemplate let-pageOpenedList>
-      <ng-container *ngFor="let tag of pageOpenedList">
-        <nz-tag nzMode="closeable" (nzOnClose)="closeTag($event)"
+      <ng-container *ngFor="let tag of pageOpenedList; let i = index">
+        <nz-tag nzMode="closeable"
+          (nzOnClose)="closeTag(i)"
+          (click)="clickTag(tag?.path)"
+          [id]="tag?.path"
           [nzChecked]="tag?.selected"
           [nzColor]="tag?.selected ? '#2d8cf0' : ''">
           <i nz-icon nzType="environment" nzTheme="outline"></i>
@@ -12,24 +15,17 @@
         </nz-tag>
       </ng-container>
     </ng-template>
-
-    <!-- <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)" [nzChecked]="true" nzColor="#2d8cf0">
-      <i nz-icon nzType="environment" nzTheme="outline"></i>
-      首页
-    </nz-tag>
-    <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)" [nzChecked]="true">
-      <i nz-icon nzType="environment" nzTheme="outline"></i>
-      文档
-    </nz-tag>
-    <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)" [nzColor]="'#2d8cf0'">
-      <i nz-icon nzType="environment" nzTheme="outline"></i>
-      树状下拉选择器
-    </nz-tag> -->
   </div>
 </div>
-<a>
+<a href="javascript:void(0)" (click)="handleScroll('right')">
   <i nz-icon nzType="right" nzTheme="outline"></i>
 </a>
-<a>
+<a href="javascript:void(0)" nz-dropdown [nzDropdownMenu]="menu">
   <i nz-icon nzType="caret-down" nzTheme="outline"></i>
 </a>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li nz-menu-item (click)="closeTags('otherTags')">关闭其他</li>
+    <li nz-menu-item (click)="closeTags('allTags')">关闭所有</li>
+  </ul>
+</nz-dropdown-menu>

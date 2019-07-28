@@ -9,7 +9,7 @@ import { AppService } from '../../../services/app/app.service'
 })
 export class MainRoutingModule {
   constructor(private app: AppService) {
-    this.app.setMenuList(MainRoutes.reduce((res, next) => {
+    this.app.setMenuList(MainRoutes[0].children[1].children.reduce((res, next) => {
       if (next.data) {
         res.push(next.data)
       }

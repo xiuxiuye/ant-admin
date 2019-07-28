@@ -10,8 +10,8 @@ export class RouterService {
     this.router.navigate(commands.concat(params))
   }
   // 返回当前路由信息
-  getRoute():  ActivatedRoute{
-    return this.route
+  getRoute(): Router {
+    return this.router
   }
   constructor(private router: Router, private route: ActivatedRoute,) { }
 
