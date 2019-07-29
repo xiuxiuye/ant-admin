@@ -16,7 +16,9 @@ export class HeaderNavComponent implements OnInit {
   logout(): void {
     this.user.logout()
   }
+  toggleFullScreen(): void {
 
+  }
   constructor(private user: UserService, private app: AppService) { }
 
   ngOnInit() {

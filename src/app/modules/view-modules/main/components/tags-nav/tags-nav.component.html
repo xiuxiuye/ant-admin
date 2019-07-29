@@ -4,8 +4,8 @@
     <ng-container *ngTemplateOutlet="TgasTemplate; context: { $implicit: pageOpenedList }"></ng-container>
     <ng-template #TgasTemplate let-pageOpenedList>
       <ng-container *ngFor="let tag of pageOpenedList; let i = index">
-        <nz-tag nzMode="closeable"
-          (nzOnClose)="closeTag(i)"
+        <nz-tag [nzMode]="i > 0 ? 'closeable' : 'default'"
+          (nzOnClose)="closeTag($event, i, tag?.path)"
           (click)="clickTag(tag?.path)"
           [id]="tag?.path"
           [nzChecked]="tag?.selected"

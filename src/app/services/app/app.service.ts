@@ -27,7 +27,7 @@ export class AppService {
     this.menuList = this.menuList.concat(menus)
   }
   // openedPageTagList 相关方法
-  getPageOpenedList(): object[] {
+  getPageOpenedList(): any[] {
     return this.pageOpenedList
   }
   addPageOpenedList(page: any): void {
@@ -72,6 +72,7 @@ export class AppService {
   }
   removePageOpenedList(index: number): void {
     this.pageOpenedList.splice(index, 1)
+    sessionStorage.pageOpenedList = JSON.stringify(this.pageOpenedList)
   }
   resetPageOpenedList(): void {
     this.pageOpenedList = [{ title: '首页', type: "menu", path: '/home', selected: true }]
@@ -85,11 +86,17 @@ export class AppService {
   }
   // page-tag 相关方法
   closePageTag(index: number): void {
-    console.log(index)
-    // this.removePageOpenedList(index)
+    this.removePageOpenedList(index)
   }
   closeOtherPageTags(currentRoutePath): void {
-
+    const temp = [this.pageOpenedList[0]]
+    for (const page of this.pageOpenedList) {
+      if (page.path === currentRoutePath && currentRoutePath !== '/home') {
+        temp.push(page)
+        break
+      }
+    }
+    this.pageOpenedList = temp
   }
   closeAllPageTags(): void {
     this.resetPageOpenedList()

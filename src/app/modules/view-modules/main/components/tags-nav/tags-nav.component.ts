@@ -38,29 +38,37 @@ export class TagsNavComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.currentRoutePath = this.app.getCurrentOpenedPage().path
-    const tagRefs = Array.from(this.refs.nativeElement.querySelectorAll('nz-tag'))
-    const tag = this.getTagOfRoute(this.currentRoutePath, tagRefs)
-    this.setTagsWrapperScrollPosition(tag)
+    setTimeout(() => {
+      this.currentRoutePath = this.app.getCurrentOpenedPage().path
+      const tagRefs = Array.from(this.refs.nativeElement.querySelectorAll('nz-tag'))
+      const tag = this.getTagOfRoute(this.currentRoutePath, tagRefs)
+      this.setTagsWrapperScrollPosition(tag)
+    }, 200);
   }
 
   ngOnDestroy() {
     this.routerEventsListener.unsubscribe()
   }
 
-  @Input() pageOpenedList: object[]
+  @Input() pageOpenedList: any[]
   leftOffset = 0
   routerEventsListener
   private currentRoutePath: string
 
-  closeTag(index) {
-    console.log(index)
+  closeTag(event, index, path) {
     this.app.closePageTag(index)
+    if (path === this.currentRoutePath) {
+      this.pageOpenedList = this.app.getPageOpenedList()
+      const redirctTo = this.pageOpenedList[this.pageOpenedList.length - 1].path
+      this.router.navigateRoute([redirctTo])
+    } else {
+      this.leftOffset = Math.min(0, this.leftOffset + event.target.parentNode.parentNode.offsetWidth)
+    }
   }
 
   closeTags(action) {
-    if (action === 'closeOthers') {
-      this.leftOffset = 0
+    this.leftOffset = 0
+    if (action === 'otherTags') {
       this.app.closeOtherPageTags(this.currentRoutePath)
     } else {
       this.app.closeAllPageTags()
@@ -69,7 +77,7 @@ export class TagsNavComponent implements OnInit, OnDestroy, AfterViewInit {
     this.pageOpenedList = this.app.getPageOpenedList()
   }
 
-  clickTag(path: string) {
+  clickTag(path) {
     this.router.navigateRoute([path])
   }
 
@@ -90,7 +98,7 @@ export class TagsNavComponent implements OnInit, OnDestroy, AfterViewInit {
       this.leftOffset = -tag.offsetLeft
     } else {
       // 标签位于可视区域的右侧 or 可视区域
-      this.leftOffset = Math.min(0, -(tag.offsetWidth + tag.offsetLeft - this.refs.nativeElement.querySelector('.tags-wrapper').offsetWidth + 4))
+      this.leftOffset = Math.min(0, -(tag.offsetWidth + tag.offsetLeft - this.refs.nativeElement.querySelector('.tags-wrapper').offsetWidth))
     }
   }
 
